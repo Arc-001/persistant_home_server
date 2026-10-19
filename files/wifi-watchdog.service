@@ -1,0 +1,7 @@
+[Unit]
+Description=Check Wi-Fi connectivity and recover if down
+After=NetworkManager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wifi-watchdog

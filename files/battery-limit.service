@@ -1,0 +1,10 @@
+[Unit]
+Description=Cap battery charge (laptop is always plugged in)
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/homeserver/config.env
+ExecStart=/bin/sh -c 'for f in /sys/class/power_supply/BAT*/charge_control_end_threshold; do echo "$BATTERY_LIMIT" > "$f"; done'
+
+[Install]
+WantedBy=multi-user.target

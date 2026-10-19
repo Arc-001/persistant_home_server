@@ -1,0 +1,8 @@
+[Unit]
+Description=Update Porkbun DNS A records with current public IP
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/porkbun-ddns
